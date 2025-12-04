@@ -66,6 +66,9 @@ nav a:hover {
 .hamburger {
     display: none;
 }
+.mobile-menu{
+   display: none;
+}
 
 /* Header Layout Fix */
 header .nav {
@@ -961,3 +964,4 @@ footer {
         width: 90%;
     }
 }
+
