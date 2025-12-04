@@ -7,7 +7,7 @@ function reveal() {
     reveals.forEach((element) => {
         const windowHeight = window.innerHeight;
         const revealTop = element.getBoundingClientRect().top;
-        const revealPoint = 200;
+        const revealPoint = 20;
 
         if (revealTop < windowHeight - revealPoint) {
             element.classList.add("active");
