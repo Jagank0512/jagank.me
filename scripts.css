@@ -7,7 +7,7 @@ function reveal() {
     reveals.forEach((element) => {
         const windowHeight = window.innerHeight;
         const revealTop = element.getBoundingClientRect().top;
-        const revealPoint = 20;
+        const revealPoint = 200;
 
         if (revealTop < windowHeight - revealPoint) {
             element.classList.add("active");
@@ -57,7 +57,7 @@ window.addEventListener("load", () => {
     const underline = document.querySelector(".hero-underline");
     const buttons = document.querySelector(".hero-buttons");
 
-    setTimeout(() => { heroText.style.opacity = "1"; heroText.style.transform = "translateY(0)"; }, 200);
+    // setTimeout(() => { herotext.style.opacity = "1"; herotext.style.transform = "translateY(0)"; }, 200);
     setTimeout(() => { underline.style.opacity = "1"; }, 600);
     setTimeout(() => { buttons.style.opacity = "1"; buttons.style.transform = "translateY(0)"; }, 900);
 });
@@ -105,6 +105,12 @@ document.querySelectorAll(".service-banner").forEach(banner => {
 document.querySelectorAll(".project-card").forEach(card => {
     card.classList.add("reveal");
 });
+
+
+
+
+
+
 
 
 
