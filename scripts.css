@@ -53,14 +53,20 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
    HERO TEXT SMOOTH FADE-IN
 ------------------------------------------ */
 window.addEventListener("load", () => {
-    // const heroText = document.querySelector(".hero-title");
+    const heroText = document.querySelector(".hero-title");
     const underline = document.querySelector(".hero-underline");
     const buttons = document.querySelector(".hero-buttons");
 
-    // setTimeout(() => { herotext.style.opacity = "1"; herotext.style.transform = "translateY(0)"; }, 200);
+    heroText.style.opacity = "0";
+    heroText.style.transform = "translateY(20px)";
+    buttons.style.opacity = "0";
+    buttons.style.transform = "translateY(20px)";
+
+    setTimeout(() => { heroText.style.opacity = "1"; heroText.style.transform = "translateY(0)"; }, 200);
     setTimeout(() => { underline.style.opacity = "1"; }, 600);
     setTimeout(() => { buttons.style.opacity = "1"; buttons.style.transform = "translateY(0)"; }, 900);
 });
+
 
 
 
