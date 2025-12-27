@@ -32,19 +32,31 @@ document.getElementById("hamburger").addEventListener("click", () => {
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
-  emailjs.send("service_Jagan.webdev", "template_djehc7p", {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    message: document.getElementById("message").value,
-    time: new Date().toLocaleString()
+  const formData = new FormData();
+  formData.append("access_key", "9d5cb08f-2148-4f54-986b-995f842f3893"); // Your Web3Forms Access Key
+  formData.append("name", document.getElementById("name").value);
+  formData.append("email", document.getElementById("email").value);
+  formData.append("message", document.getElementById("message").value);
+  formData.append("subject", "New Contact Form Submission - Portfolio"); // Optional: Custom subject
+
+  // Send data to Web3Forms via Fetch API
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    body: formData
   })
-    .then(() => {
-      alert("Your message has been sent successfully!");
-      document.getElementById("contactForm").reset();
+    .then(async (response) => {
+      const json = await response.json();
+      if (response.status == 200) {
+        alert("Your message has been sent successfully!");
+        document.getElementById("contactForm").reset();
+      } else {
+        console.error("Web3Forms Error:", json);
+        alert("Something went wrong. Please try again: " + (json.message || "Unknown error"));
+      }
     })
     .catch((error) => {
-      alert("Message sending failed. Please try again.");
-      console.error("EmailJS Error:", error);
+      console.error("Fetch Error:", error);
+      alert("Message sending failed. Please check your internet connection.");
     });
 });
 
